@@ -165,7 +165,33 @@ void greet(void)
  */
 void init(void)
 {
-  // TODO
+	int counter = (d*d)-1;
+	if(d%2 == 0){ //even X even array
+		for(int i = 0; i < d; i++){
+			for(int j = 0; j < d; j++){
+				if(i==(d-1) && j==(d-2)){
+					board[i][j] = 2;
+				}else if(i == (d-1) && j == (d-3)){
+					board[i][j] = 1;
+				}else if(i == (d-1) && j ==(d-1)){
+					board[i][j] = 0;
+				}else{
+					board[i][j] = counter--;
+				}
+			}
+		}
+	}else{	//odd X odd array
+		for(int i = 0; i < d; i++){
+			for(int j = 0; j < d; j++){
+				if(i == (d-1) && j == (d-1)){
+					//blank space for final element
+					board[i][j] = 0;
+				}else{
+					board[i][j] = counter--;
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -173,7 +199,12 @@ void init(void)
  */
 void draw(void)
 {
-  // TODO
+	for(int i = 0; i < d; i++){
+		for(int j = 0;j < d; j++){
+			printf("%-5d",board[i][j]);
+		}
+		printf("\n");
+	}
 }
 
 /**
@@ -191,5 +222,17 @@ int move(int tile)
  */
 int won(void)
 {
-  // TODO
+	int counter = 1;
+	for(int i = 0; i < d; i++){
+		for(int j = 0; j < d; j++){
+			if(board[d-1][d-1] != 0){
+				return 0;
+			}else{
+				if(board[i][j] != counter++){
+					return 0;
+				}
+			}
+		}
+	}
+	return 1;
 }

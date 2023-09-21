@@ -1,7 +1,10 @@
 1. Besides 4x4, what other dimensions does the framework allow?
-
+	The framework allows for any dimension of the
+	gameboard as long as it is in the form NxN
+	while 2 < N < 10.
 2. What data structure is used for representation of the game board?
-
+	The data structure used is a 2 dimensional array.
 3. What function is called to greet the player?
-
+	greet
 4. What functions do you need to implement?
+	init, draw, move, won

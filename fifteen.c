@@ -213,7 +213,37 @@ void draw(void)
  */
 int move(int tile)
 {
-  // TODO
+  // Use Taxi Cab geometry | x1 - x2 | + | y1 - y2 | = 1 then accepted else rejected
+	int temp;
+	for(int i = 0; i < d; i++){
+		for(int j = 0; j < d; j++){
+			if(board[i][j] == tile){
+				if(board[i-1][j] == 0 && (i-1 < d) && (i-1 > -1)){
+					temp = board[i][j];
+					board[i][j] = board[i-1][j];
+					board[i-1][j] = temp;
+					return 1; 
+				}else if(board[i+1][j] == 0 && (i+1 < d) && (i+1 > -1)){
+					temp = board[i][j];
+					board[i][j] = board[i+1][j];
+					board[i+1][j] = temp;
+					return 1; 
+				}else if(board[i][j-1] == 0 && (j-1 < d) && (j-1 > -1)){
+					temp = board[i][j];
+					board[i][j] = board[i][j-1];
+					board[i][j-1] = temp;
+					return 1; 
+				}else if(board[i][j+1] == 0 && (j+1 < d) && (j+1 >-1)){
+					temp = board[i][j];
+					board[i][j] = board[i][j+1];
+					board[i][j+1] = temp;
+					return 1; 
+				}else{continue;}
+			temp = 0;
+			}
+		}
+	}
+	return 0;
 }
 
 /**

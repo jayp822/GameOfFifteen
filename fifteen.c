@@ -201,6 +201,7 @@ void draw(void)
 {
 	for(int i = 0; i < d; i++){
 		for(int j = 0;j < d; j++){
+			//%-5d makes indent for all ints the same.
 			printf("%-5d",board[i][j]);
 		}
 		printf("\n");
@@ -217,6 +218,7 @@ int move(int tile)
 	int temp;
 	for(int i = 0; i < d; i++){
 		for(int j = 0; j < d; j++){
+			//checks left right up and down since they are the only legal moves
 			if(board[i][j] == tile){
 				if(board[i-1][j] == 0 && (i-1 < d) && (i-1 > -1)){
 					temp = board[i][j];
@@ -238,7 +240,7 @@ int move(int tile)
 					board[i][j] = board[i][j+1];
 					board[i][j+1] = temp;
 					return 1; 
-				}else{continue;}
+				}
 			temp = 0;
 			}
 		}
@@ -255,14 +257,16 @@ int won(void)
 	int counter = 1;
 	for(int i = 0; i < d; i++){
 		for(int j = 0; j < d; j++){
-			if(board[d-1][d-1] != 0){
-				return 0;
-			}else{
-				if(board[i][j] != counter++){
-					return 0;
-				}
-			}
-		}
+			//first checks if last element is 0
+			if(board[d-1][d-1] == 0){
+				//updates counter if current position is correct
+				if(board[i][j] == counter){
+					//checks if last position is correct
+					if(counter == (d*d)-1 && board[i][j] == (d*d)-1){return 1;}
+					counter++;
+				}else{counter = 0;}
+			}		
+		}	
 	}
-	return 1;
+	return 0;;
 }

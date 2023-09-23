@@ -5,7 +5,7 @@ cl: $(NAME).c
 	gcc -o $(NAME) $(FALGS) $(NAME).c
 
 run: cl
-	./$(NAME) 3x3.txt
+	./$(NAME) 3
 	
 clean:
 	rm -f $(NAME)

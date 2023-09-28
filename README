@@ -1,14 +1,4 @@
-1. Besides 4x4, what other dimensions does the framework allow?
-	The framework allows for any dimension of the
-	gameboard as long as it is in the form NxN
-	while 2 < N < 10.
-2. What data structure is used for representation of the game board?
-	The data structure used is a 2 dimensional array.
-3. What function is called to greet the player?
-	greet();
-4. What functions do you need to implement?
-	init, draw, move, won
-
+The program is copyright of the Harvard CS50 professor David, I implemented the init, move, draw, and won functions. Aslo I created the correct makefile for the program.
 *Instructions for running program*
 
 To change the board to desired NxN go into the makefile(line 8) and change the number 3 to any n from 3-9.

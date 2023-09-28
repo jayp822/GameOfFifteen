@@ -5,6 +5,22 @@
 2. What data structure is used for representation of the game board?
 	The data structure used is a 2 dimensional array.
 3. What function is called to greet the player?
-	greet
+	greet();
 4. What functions do you need to implement?
 	init, draw, move, won
+
+*Instructions for running program*
+
+To change the board to desired NxN go into the makefile(line 8) and change the number 3 to any n from 3-9.
+Example: 
+	./$(NAME) 3
+For 5x5 board
+	./$(NAME) 5
+
+To put the solution for the board in the makefile do
+	
+	./$(NAME) N NxN.txt
+
+	where 2 < N < 10
+
+
